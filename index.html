@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Семен Сіденко — UI/UX-дизайнер</title>
+    <meta
+      name="description"
+      content="Проєктую дизайн лендінгів і сайтів, які з першого екрана виглядають так, що бізнесу довіряють."
+    />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <div class="page">
+      <section class="hero" id="top">
+        <header class="hero__header">
+          <a class="logo" href="#top">sidenko_design.s</a>
+
+          <nav class="nav" aria-label="Основна навігація">
+            <a href="#about">Про мене</a>
+            <a href="#works" class="is-active" aria-current="location">Роботи</a>
+            <a href="#process">Процес</a>
+            <a href="#packages">Пакети</a>
+            <a href="#contact">Контакти</a>
+          </nav>
+
+          <button class="lang" type="button" aria-label="Змінити мову: українська">UA</button>
+        </header>
+
+        <div class="hero__intro">
+          <figure class="portrait">
+            <img
+              src="/src/assets/portrait.png"
+              alt="Семен Сіденко"
+              width="314"
+              height="392"
+              fetchpriority="high"
+            />
+          </figure>
+
+          <div class="about">
+            <h2 class="about__name">Семен Сіденко</h2>
+            <p class="about__role"><strong>UI/UX-дизайнер, 2+</strong> років досвіду</p>
+            <a class="link-works" href="#works">Дивитися роботи</a>
+          </div>
+
+          <div class="pitch">
+            <div class="pitch__text">
+              <h1 class="pitch__title">Дизайн сайтів для бізнесу</h1>
+              <p class="pitch__body">
+                Проєктую дизайн лендінгів та сайтів для бізнесу, де вигляд визначає довіру
+                клієнтів:<br />
+                Так ваш бренд переконує вже з першого екрана.
+              </p>
+            </div>
+
+            <a class="cta" href="#contact">
+              <span class="cta__label">Розповісти про проект</span>
+              <span class="round round--dark" aria-hidden="true">
+                <img src="/src/assets/arrow-light.svg" alt="" width="24" height="24" />
+              </span>
+            </a>
+          </div>
+
+          <a class="case" href="#works" aria-label="Кейс 1">
+            <span class="case__label">Case image</span>
+            <span class="round round--light" aria-hidden="true">
+              <img src="/src/assets/arrow-dark.svg" alt="" width="24" height="24" />
+            </span>
+          </a>
+
+          <a class="case" href="#works" aria-label="Кейс 2">
+            <span class="case__label">Case image</span>
+            <span class="round round--light" aria-hidden="true">
+              <img src="/src/assets/arrow-dark.svg" alt="" width="24" height="24" />
+            </span>
+          </a>
+        </div>
+
+        <p class="hero__word" aria-hidden="true">design.</p>
+      </section>
+    </div>
+  </body>
+</html>

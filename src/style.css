@@ -1,0 +1,439 @@
+/*
+  Перший екран — макет Figma шириною 1920px (node 16:184).
+  Усі розміри задані в --u (1u = 1px макета) і масштабуються разом із шириною
+  контейнера. Нижче 1100px --u = 1px, а розкладка стає вертикальною.
+*/
+
+:root {
+  --color-bg: #fff;
+  --color-text: #000;
+  --color-muted: #454545;
+  --color-placeholder: #d9d9d9;
+  --color-photo-bg: #b4b4b4;
+
+  /* Satoshi у макеті; файлів шрифту ще немає, тому Inter як запасний (має кирилицю). */
+  --font-ui: 'Satoshi', 'Inter', system-ui, sans-serif;
+  --font-nav: 'Inter', system-ui, sans-serif;
+  --font-display: 'Urbanist', 'Inter', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-nav);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+p,
+figure {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page {
+  container-type: inline-size;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  --u: calc(min(100cqw, 1920px) / 1920);
+  --cols: calc(var(--u) * 229) calc(var(--u) * 21) calc(var(--u) * 274) calc(var(--u) * 232)
+    calc(var(--u) * 316) calc(var(--u) * 43) calc(var(--u) * 362) calc(var(--u) * 27)
+    calc(var(--u) * 356);
+
+  position: relative;
+  overflow: hidden;
+  max-width: 1920px;
+  height: calc(var(--u) * 960);
+  margin-inline: auto;
+}
+
+.hero__header,
+.hero__intro {
+  display: grid;
+  grid-template-columns: var(--cols);
+  padding-inline: calc(var(--u) * 30);
+}
+
+/* ---------- Header ---------- */
+
+.hero__header {
+  align-items: start;
+  height: calc(var(--u) * 87);
+  padding-top: calc(var(--u) * 16);
+}
+
+.logo {
+  grid-column: 1 / 6;
+  margin-top: calc(var(--u) * 7);
+  font-family: var(--font-ui);
+  font-size: calc(var(--u) * 18);
+  font-weight: 700;
+  letter-spacing: calc(var(--u) * -0.9);
+  white-space: nowrap;
+}
+
+.nav {
+  grid-column: 7 / 10;
+  grid-row: 1;
+  display: flex;
+  gap: calc(var(--u) * 56);
+  margin-top: calc(var(--u) * 14);
+  font-size: calc(var(--u) * 18);
+  font-weight: 500;
+  letter-spacing: calc(var(--u) * -0.9);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.nav a.is-active {
+  text-decoration: underline;
+  text-decoration-thickness: 5.5%;
+  text-underline-offset: 0.15em;
+}
+
+.lang {
+  grid-column: 9;
+  grid-row: 1;
+  justify-self: end;
+  display: grid;
+  place-items: center;
+  width: calc(var(--u) * 50);
+  height: calc(var(--u) * 50);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-text);
+  color: #fff;
+  font-family: var(--font-nav);
+  font-size: calc(var(--u) * 18);
+  font-weight: 500;
+  letter-spacing: calc(var(--u) * -0.9);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* ---------- Intro row ---------- */
+
+.hero__intro {
+  align-items: stretch;
+  height: calc(var(--u) * 299);
+}
+
+.portrait {
+  grid-column: 1;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-photo-bg);
+}
+
+/* Кадрування як у макеті: розміри в % контейнера 229×299 */
+.portrait img {
+  position: absolute;
+  left: -22.7%;
+  top: 3.3%;
+  width: 137.1%;
+  height: 131.1%;
+  max-width: none;
+  object-fit: cover;
+}
+
+.about {
+  grid-column: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: calc(var(--u) * 24);
+  margin-top: calc(var(--u) * -8);
+  font-family: var(--font-ui);
+}
+
+.about__name {
+  font-size: calc(var(--u) * 24);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: calc(var(--u) * -0.72);
+}
+
+.about__role {
+  margin-top: calc(var(--u) * -20);
+  font-size: calc(var(--u) * 17);
+  line-height: calc(var(--u) * 24.4);
+  letter-spacing: calc(var(--u) * -0.28);
+  white-space: nowrap;
+}
+
+.about__role strong {
+  font-weight: 700;
+}
+
+.link-works {
+  font-family: var(--font-nav);
+  font-size: calc(var(--u) * 18);
+  font-weight: 700;
+  letter-spacing: calc(var(--u) * -0.9);
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-thickness: 5.5%;
+  text-underline-offset: 0.15em;
+  white-space: nowrap;
+}
+
+.pitch {
+  grid-column: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: calc(var(--u) * 14);
+  margin-top: calc(var(--u) * -5);
+  font-family: var(--font-ui);
+}
+
+.pitch__text {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--u) * 10);
+}
+
+.pitch__title {
+  font-size: calc(var(--u) * 24);
+  font-weight: 700;
+  line-height: calc(var(--u) * 25);
+  letter-spacing: calc(var(--u) * -0.72);
+}
+
+.pitch__body {
+  color: var(--color-muted);
+  font-size: calc(var(--u) * 18);
+  font-weight: 500;
+  line-height: calc(var(--u) * 22);
+  letter-spacing: calc(var(--u) * -0.54);
+  text-align: justify;
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 18);
+  font-size: calc(var(--u) * 18);
+  font-weight: 700;
+  letter-spacing: calc(var(--u) * -0.54);
+  text-transform: uppercase;
+}
+
+.cta__label {
+  white-space: nowrap;
+}
+
+/* Кругла кнопка зі стрілкою */
+.round {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: calc(var(--u) * 69.93);
+  height: calc(var(--u) * 69.93);
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.round img {
+  display: block;
+  width: calc(var(--u) * 24);
+  height: calc(var(--u) * 24);
+  transform: rotate(-46.31deg);
+}
+
+.round--dark {
+  background: var(--color-text);
+}
+
+.round--light {
+  background: #fff;
+}
+
+.cta:hover .round,
+.case:hover .round {
+  transform: scale(1.08);
+}
+
+.case {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: var(--color-placeholder);
+}
+
+.case:nth-of-type(1) {
+  grid-column: 7;
+}
+
+.case:nth-of-type(2) {
+  grid-column: 9;
+}
+
+.case__label {
+  padding-bottom: calc(var(--u) * 13);
+  font-size: calc(var(--u) * 18);
+  font-weight: 700;
+  letter-spacing: calc(var(--u) * -0.9);
+  text-transform: uppercase;
+}
+
+.case .round {
+  position: absolute;
+  right: calc(var(--u) * 17);
+  bottom: calc(var(--u) * 13);
+}
+
+/* ---------- Велике слово ---------- */
+
+.hero__word {
+  position: absolute;
+  left: calc(var(--u) * 11);
+  top: calc(var(--u) * 340);
+  width: calc(var(--u) * 2004);
+  font-family: var(--font-display);
+  font-size: calc(var(--u) * 723.19);
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: calc(var(--u) * -36.16);
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* ---------- Планшет і телефон ---------- */
+
+@media (max-width: 1099px) {
+  .hero {
+    --u: 1px;
+    height: auto;
+    padding-bottom: 8px;
+  }
+
+  .hero__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    padding: 16px 16px 20px;
+    gap: 16px;
+  }
+
+  .logo {
+    margin-top: 0;
+  }
+
+  .nav {
+    order: 3;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    margin-top: 0;
+    font-size: 15px;
+  }
+
+  .hero__intro {
+    height: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 16px;
+    padding-inline: 16px;
+  }
+
+  .portrait {
+    grid-column: 1;
+    aspect-ratio: 229 / 299;
+  }
+
+  .about {
+    grid-column: 2;
+    margin-top: 0;
+    gap: 16px;
+  }
+
+  .about__role {
+    margin-top: -12px;
+    white-space: normal;
+  }
+
+  .pitch__body {
+    text-align: left;
+  }
+
+  .pitch {
+    grid-column: 1 / -1;
+    gap: 24px;
+    margin-top: 0;
+    padding-bottom: 0;
+  }
+
+  .case:nth-of-type(1) {
+    grid-column: 1;
+  }
+
+  .case:nth-of-type(2) {
+    grid-column: 2;
+  }
+
+  .case {
+    aspect-ratio: 362 / 299;
+  }
+
+  .hero__word {
+    position: static;
+    width: auto;
+    margin: 8px 0 0 4px;
+    font-size: 36cqw;
+    letter-spacing: -0.05em;
+    line-height: 0.9;
+  }
+}
+
+@media (max-width: 480px) {
+  .about__name {
+    font-size: 20px;
+  }
+
+  .about__role {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .link-works {
+    font-size: 15px;
+  }
+
+  .case__label {
+    font-size: 14px;
+  }
+
+  .round {
+    width: 56px;
+    height: 56px;
+  }
+
+  .case .round {
+    width: 44px;
+    height: 44px;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .case__label {
+    padding-bottom: 28px;
+  }
+}
