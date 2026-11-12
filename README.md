@@ -5,7 +5,7 @@
 ## Стек
 
 - [Vite](https://vite.dev) (vanilla HTML/CSS/JS)
-- Шрифти: Inter і Urbanist через `@fontsource` (self-hosted). Satoshi з макета Figma буде додано окремо.
+- Шрифти: Inter і Urbanist через `@fontsource` (self-hosted). Satoshi підтягується з Fontshare API (ліцензія Fontshare забороняє публікувати файли шрифту, тому їх немає в репозиторії). Увага для GDPR: браузер відвідувача робить запит до api.fontshare.com і cdn.fontshare.com.
 - Деплой: Vercel
 
 ## Запуск

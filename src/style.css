@@ -4,31 +4,7 @@
   контейнера. Нижче 1100px --u = 1px, а розкладка стає вертикальною.
 */
 
-/*
-  Satoshi лежить у public/fonts і не потрапляє в git: ліцензія Fontshare
-  забороняє публікувати файли шрифту. Якщо файлів немає (наприклад, на Vercel),
-  браузер бере наступний шрифт зі стеку — Inter.
-*/
-@font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-Medium.woff2') format('woff2');
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-display: swap;
-}
+/* Satoshi підключено в index.html через Fontshare API. */
 
 :root {
   --color-bg: #fff;
