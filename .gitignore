@@ -5,3 +5,5 @@ dist
 *.log
 .DS_Store
 .claude
+# Satoshi (Fontshare FF EULA forbids publishing the font files)
+public/fonts/
