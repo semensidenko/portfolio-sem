@@ -308,9 +308,8 @@ a {
 }
 
 /*
-  Підкреслення посилань. Активний пункт меню й «Дивитися роботи» мають суцільну
-  лінію (::before); при наведенні вона зникає, а пунктир (::after) «малюється»
-  зліва направо. В інших посилань суцільної лінії немає, пунктир з'являється так само.
+  Підкреслення посилань: суцільна лінія є завжди (::before). При наведенні вона
+  зникає, і така сама суцільна лінія (::after) «малюється» зліва направо.
 */
 .nav a,
 .link-works,
@@ -320,6 +319,7 @@ a {
 
 .nav a::before,
 .link-works::before,
+.cta__label::before,
 .nav a::after,
 .link-works::after,
 .cta__label::after {
@@ -328,32 +328,22 @@ a {
   left: 0;
   bottom: calc(var(--u) * -3);
   width: 100%;
-  height: calc(var(--u) * 2);
+  height: calc(var(--u) * 1.5);
+  background: currentColor;
   pointer-events: none;
 }
 
-/* суцільна лінія в стані спокою */
+/* лінія в стані спокою */
 .nav a::before,
-.link-works::before {
-  background: currentColor;
-  opacity: 0;
+.link-works::before,
+.cta__label::before {
   transition: opacity 0.15s ease;
 }
 
-.nav a.is-active::before,
-.link-works::before {
-  opacity: 1;
-}
-
-/* пунктир, який малюється */
+/* лінія, яка малюється */
 .nav a::after,
 .link-works::after,
 .cta__label::after {
-  background: repeating-linear-gradient(
-    90deg,
-    currentColor 0 calc(var(--u) * 6),
-    transparent calc(var(--u) * 6) calc(var(--u) * 10)
-  );
   clip-path: inset(0 100% 0 0);
   transition: clip-path 0.45s ease;
 }
@@ -365,7 +355,8 @@ a {
 }
 
 .nav a:focus-visible::before,
-.link-works:focus-visible::before {
+.link-works:focus-visible::before,
+.cta:focus-visible .cta__label::before {
   opacity: 0;
 }
 
@@ -377,7 +368,8 @@ a {
   }
 
   .nav a:hover::before,
-  .link-works:hover::before {
+  .link-works:hover::before,
+  .cta:hover .cta__label::before {
     opacity: 0;
   }
 }
