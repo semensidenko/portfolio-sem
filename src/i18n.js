@@ -13,6 +13,7 @@ const dictionary = {
     'meta.description':
       'Проєктую дизайн лендінгів і сайтів, які з першого екрана виглядають так, що бізнесу довіряють.',
     'nav.label': 'Основна навігація',
+    'menu.label': 'Меню',
     'nav.works': 'Роботи',
     'nav.packages': 'Пакети',
     'nav.process': 'Процес',
@@ -35,6 +36,7 @@ const dictionary = {
     'meta.description':
       'I design landing pages and websites that look trustworthy from the very first screen.',
     'nav.label': 'Main navigation',
+    'menu.label': 'Menu',
     'nav.works': 'Works',
     'nav.packages': 'Packages',
     'nav.process': 'Process',

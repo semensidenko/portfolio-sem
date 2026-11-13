@@ -23,7 +23,7 @@
         <header class="hero__header">
           <a class="logo" href="#top">sidenko_design.s</a>
 
-          <nav class="nav" aria-label="Основна навігація" data-i18n-aria-label="nav.label">
+          <nav id="site-nav" class="nav" aria-label="Основна навігація" data-i18n-aria-label="nav.label">
             <a href="#works" class="is-active" aria-current="location" data-i18n="nav.works">Роботи</a>
             <a href="#packages" data-i18n="nav.packages">Пакети</a>
             <a href="#process" data-i18n="nav.process">Процес</a>
@@ -32,6 +32,20 @@
           </nav>
 
           <button class="lang" type="button" data-lang-toggle>UA</button>
+
+          <button
+            class="burger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-nav"
+            aria-label="Меню"
+            data-i18n-aria-label="menu.label"
+            data-menu-toggle
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </header>
 
         <div class="hero__intro">
