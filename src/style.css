@@ -102,11 +102,6 @@ a {
   white-space: nowrap;
 }
 
-.nav a.is-active {
-  text-decoration: underline;
-  text-decoration-thickness: 5.5%;
-  text-underline-offset: 0.15em;
-}
 
 .lang {
   grid-column: 9;
@@ -188,9 +183,6 @@ a {
   font-weight: 700;
   letter-spacing: calc(var(--u) * -0.9);
   text-transform: uppercase;
-  text-decoration: underline;
-  text-decoration-thickness: 5.5%;
-  text-underline-offset: 0.15em;
   white-space: nowrap;
 }
 
@@ -313,6 +305,81 @@ a {
   letter-spacing: calc(var(--u) * -36.16);
   white-space: nowrap;
   user-select: none;
+}
+
+/*
+  Підкреслення посилань. Активний пункт меню й «Дивитися роботи» мають суцільну
+  лінію (::before); при наведенні вона зникає, а пунктир (::after) «малюється»
+  зліва направо. В інших посилань суцільної лінії немає, пунктир з'являється так само.
+*/
+.nav a,
+.link-works,
+.cta__label {
+  position: relative;
+}
+
+.nav a::before,
+.link-works::before,
+.nav a::after,
+.link-works::after,
+.cta__label::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: calc(var(--u) * -3);
+  width: 100%;
+  height: calc(var(--u) * 2);
+  pointer-events: none;
+}
+
+/* суцільна лінія в стані спокою */
+.nav a::before,
+.link-works::before {
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.nav a.is-active::before,
+.link-works::before {
+  opacity: 1;
+}
+
+/* пунктир, який малюється */
+.nav a::after,
+.link-works::after,
+.cta__label::after {
+  background: repeating-linear-gradient(
+    90deg,
+    currentColor 0 calc(var(--u) * 6),
+    transparent calc(var(--u) * 6) calc(var(--u) * 10)
+  );
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.45s ease;
+}
+
+.nav a:focus-visible::after,
+.link-works:focus-visible::after,
+.cta:focus-visible .cta__label::after {
+  clip-path: inset(0 0 0 0);
+}
+
+.nav a:focus-visible::before,
+.link-works:focus-visible::before {
+  opacity: 0;
+}
+
+@media (hover: hover) {
+  .nav a:hover::after,
+  .link-works:hover::after,
+  .cta:hover .cta__label::after {
+    clip-path: inset(0 0 0 0);
+  }
+
+  .nav a:hover::before,
+  .link-works:hover::before {
+    opacity: 0;
+  }
 }
 
 /* Літери «друкуються» по черзі (див. src/typing.js) */
