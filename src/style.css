@@ -311,16 +311,13 @@ a {
   Підкреслення посилань: суцільна лінія є завжди (::before). При наведенні вона
   зникає, і така сама суцільна лінія (::after) «малюється» зліва направо.
 */
-.nav a,
 .link-works,
 .cta__label {
   position: relative;
 }
 
-.nav a::before,
 .link-works::before,
 .cta__label::before,
-.nav a::after,
 .link-works::after,
 .cta__label::after {
   content: '';
@@ -334,44 +331,45 @@ a {
 }
 
 /* лінія в стані спокою */
-.nav a::before,
 .link-works::before,
 .cta__label::before {
   transition: opacity 0.15s ease;
 }
 
 /* лінія, яка малюється */
-.nav a::after,
 .link-works::after,
 .cta__label::after {
   clip-path: inset(0 100% 0 0);
   transition: clip-path 0.45s ease;
 }
 
-.nav a:focus-visible::after,
 .link-works:focus-visible::after,
 .cta:focus-visible .cta__label::after {
   clip-path: inset(0 0 0 0);
 }
 
-.nav a:focus-visible::before,
 .link-works:focus-visible::before,
 .cta:focus-visible .cta__label::before {
   opacity: 0;
 }
 
 @media (hover: hover) {
-  .nav a:hover::after,
   .link-works:hover::after,
   .cta:hover .cta__label::after {
     clip-path: inset(0 0 0 0);
   }
 
-  .nav a:hover::before,
   .link-works:hover::before,
   .cta:hover .cta__label::before {
     opacity: 0;
   }
+}
+
+/* У меню лише статичне підкреслення активного пункту, як у макеті */
+.nav a.is-active {
+  text-decoration: underline;
+  text-decoration-thickness: 5.5%;
+  text-underline-offset: 0.15em;
 }
 
 /* Літери «друкуються» по черзі (див. src/typing.js) */
