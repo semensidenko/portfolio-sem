@@ -317,6 +317,23 @@ a {
   user-select: none;
 }
 
+/* Літери «друкуються» по черзі (див. src/typing.js) */
+.hero__letter {
+  opacity: 0;
+  animation: letter-in 0.25s ease-out forwards;
+  animation-delay: calc(0.35s + var(--i) * 0.22s);
+}
+
+@keyframes letter-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 /* ---------- Планшет і телефон ---------- */
 
 @media (max-width: 1099px) {
