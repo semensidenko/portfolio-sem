@@ -46,7 +46,7 @@ const dictionary = {
     'pitch.title': 'Website design for business',
     'pitch.body':
       'I design landing pages and websites for businesses where appearance builds client trust:<br />That way your brand convinces from the very first screen.',
-    'cta.label': 'Tell me about your project',
+    'cta.label': 'Discuss your project',
     'case.one': 'Case 1',
     'case.two': 'Case 2',
     'lang.button': 'EN',
