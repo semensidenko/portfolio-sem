@@ -308,18 +308,16 @@ a {
 }
 
 /*
-  Підкреслення посилань: суцільна лінія є завжди (::before). При наведенні вона
+  «Дивитися роботи»: суцільна лінія є завжди (::before). При наведенні вона
   зникає, і така сама суцільна лінія (::after) «малюється» зліва направо.
+  У меню й на кнопці з кружечком цього ефекту немає.
 */
-.link-works,
-.cta__label {
+.link-works {
   position: relative;
 }
 
 .link-works::before,
-.cta__label::before,
-.link-works::after,
-.cta__label::after {
+.link-works::after {
   content: '';
   position: absolute;
   left: 0;
@@ -331,36 +329,30 @@ a {
 }
 
 /* лінія в стані спокою */
-.link-works::before,
-.cta__label::before {
+.link-works::before {
   transition: opacity 0.15s ease;
 }
 
 /* лінія, яка малюється */
-.link-works::after,
-.cta__label::after {
+.link-works::after {
   clip-path: inset(0 100% 0 0);
   transition: clip-path 0.45s ease;
 }
 
-.link-works:focus-visible::after,
-.cta:focus-visible .cta__label::after {
+.link-works:focus-visible::after {
   clip-path: inset(0 0 0 0);
 }
 
-.link-works:focus-visible::before,
-.cta:focus-visible .cta__label::before {
+.link-works:focus-visible::before {
   opacity: 0;
 }
 
 @media (hover: hover) {
-  .link-works:hover::after,
-  .cta:hover .cta__label::after {
+  .link-works:hover::after {
     clip-path: inset(0 0 0 0);
   }
 
-  .link-works:hover::before,
-  .cta:hover .cta__label::before {
+  .link-works:hover::before {
     opacity: 0;
   }
 }
