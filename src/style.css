@@ -160,19 +160,18 @@ a {
   flex-direction: column;
   align-items: flex-start;
   gap: calc(var(--u) * 24);
-  margin-top: calc(var(--u) * -8);
   font-family: var(--font-ui);
 }
 
 .about__name {
   font-size: calc(var(--u) * 24);
   font-weight: 700;
-  line-height: 1;
+  line-height: calc(var(--u) * 25);
   letter-spacing: calc(var(--u) * -0.72);
 }
 
 .about__role {
-  margin-top: calc(var(--u) * -20);
+  margin-top: calc(var(--u) * -21);
   font-size: calc(var(--u) * 17);
   line-height: calc(var(--u) * 24.4);
   letter-spacing: calc(var(--u) * -0.28);
@@ -201,7 +200,6 @@ a {
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: calc(var(--u) * 14);
-  margin-top: calc(var(--u) * -5);
   font-family: var(--font-ui);
 }
 
