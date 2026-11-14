@@ -53,9 +53,10 @@ a {
 
 .hero {
   --u: calc(min(100cqw, 1920px) / 1920);
-  --cols: calc(var(--u) * 229) calc(var(--u) * 21) calc(var(--u) * 274) calc(var(--u) * 232)
-    calc(var(--u) * 316) calc(var(--u) * 43) calc(var(--u) * 362) calc(var(--u) * 27)
-    calc(var(--u) * 356);
+  /* Кейси 399×299 (4:3) займають усю висоту ряду; пітч зсунуто ліворуч, щоб вони вмістилися */
+  --cols: calc(var(--u) * 229) calc(var(--u) * 21) calc(var(--u) * 274) calc(var(--u) * 146)
+    calc(var(--u) * 316) calc(var(--u) * 56) calc(var(--u) * 399) calc(var(--u) * 20)
+    calc(var(--u) * 399);
 
   position: relative;
   overflow: hidden;
@@ -196,7 +197,6 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-bottom: calc(var(--u) * 14);
   font-family: var(--font-ui);
 }
 
@@ -271,9 +271,6 @@ a {
   position: relative;
   display: grid;
   place-items: center;
-  align-self: start;
-  /* Формат 4:3, як у зображень кейсів, щоб вони вписувалися повністю */
-  height: calc(var(--u) * 271.5);
   background: var(--color-placeholder);
 }
 
