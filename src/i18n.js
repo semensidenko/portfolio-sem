@@ -110,7 +110,7 @@ function applyLang(lang) {
 
   const toggle = document.querySelector('[data-lang-toggle]');
   if (toggle) {
-    toggle.textContent = t['lang.button'];
+    toggle.dataset.lang = lang;
     toggle.setAttribute('aria-label', t['lang.label']);
   }
 }
@@ -119,9 +119,18 @@ export function initI18n() {
   let lang = readStoredLang() ?? DEFAULT_LANG;
   applyLang(lang);
 
-  document.querySelector('[data-lang-toggle]')?.addEventListener('click', () => {
+  const toggle = document.querySelector('[data-lang-toggle]');
+  const bubble = toggle?.querySelector('.lang__bubble');
+  requestAnimationFrame(() => requestAnimationFrame(() => toggle?.classList.add('is-ready')));
+
+  toggle?.addEventListener('click', () => {
     lang = lang === 'uk' ? 'en' : 'uk';
     storeLang(lang);
     applyLang(lang);
+
+    // перезапустити анімацію розтягування бульбашки
+    bubble?.classList.remove('is-squash');
+    void bubble?.offsetWidth;
+    bubble?.classList.add('is-squash');
   });
 }
