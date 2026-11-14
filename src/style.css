@@ -302,6 +302,72 @@ a {
   user-select: none;
 }
 
+.case {
+  overflow: hidden;
+}
+
+/* Назва кейса зверху ліворуч, з'являється при наведенні (лише там, де є наведення) */
+.case__tag {
+  position: absolute;
+  top: calc(var(--u) * 17);
+  left: calc(var(--u) * 17);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: calc(var(--u) * 2);
+  padding: calc(var(--u) * 8) calc(var(--u) * 14);
+  border-radius: calc(var(--u) * 14);
+  background: var(--color-bg);
+  font-size: calc(var(--u) * 16);
+  line-height: 1.1;
+  letter-spacing: calc(var(--u) * -0.5);
+  opacity: 0;
+  transform: translateY(calc(var(--u) * -6));
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  pointer-events: none;
+}
+
+.case__tag b {
+  font-weight: 700;
+}
+
+.case__tag span {
+  color: var(--color-muted);
+  font-size: calc(var(--u) * 13);
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+@media (hover: none) {
+  .case__tag {
+    display: none;
+  }
+}
+
+.case__image,
+.case .round img {
+  transition: transform 0.6s ease;
+}
+
+@media (hover: hover) {
+  .case:hover .case__tag {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Картинка наближається, стрілка з нахиленої стає прямою */
+  .case:hover .case__image {
+    transform: scale(1.07);
+  }
+
+  .case:hover .round img {
+    transform: rotate(0deg);
+  }
+}
+
 .cases__dots {
   position: absolute;
   left: calc(var(--u) * 17);
@@ -420,6 +486,56 @@ a {
   text-decoration: underline;
   text-decoration-thickness: 5.5%;
   text-underline-offset: 0.15em;
+}
+
+/* Ефекти з src/effects.js: хвиля літер і нахил фото при русі мишки */
+.hero__letter {
+  position: relative;
+  transition: top 0.18s ease-out;
+}
+
+.portrait {
+  transition: transform 0.25s ease-out;
+}
+
+/* Поява блоків при завантаженні (backwards: після анімації не лишається transform,
+   який заважав би нахилу фото) */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__header,
+  .portrait,
+  .about,
+  .pitch,
+  .cases {
+    animation: block-rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  }
+
+  .portrait {
+    animation-delay: 0.1s;
+  }
+
+  .about {
+    animation-delay: 0.22s;
+  }
+
+  .pitch {
+    animation-delay: 0.34s;
+  }
+
+  .cases {
+    animation-delay: 0.46s;
+  }
+}
+
+@keyframes block-rise {
+  from {
+    opacity: 0;
+    transform: translateY(calc(var(--u) * 28));
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* Літери «друкуються» по черзі (див. src/typing.js) */
