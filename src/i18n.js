@@ -26,8 +26,8 @@ const dictionary = {
     'pitch.body':
       'Проєктую дизайн лендінгів та сайтів для бізнесу, де вигляд визначає довіру клієнтів:<br />Так ваш бренд переконує вже з першого екрана.',
     'cta.label': 'Розповісти про проект',
-    'case.one': 'Кейс 1',
-    'case.two': 'Кейс 2',
+    'case.fwd': 'FWD — сайт креативної студії',
+    'case.aethra': 'AETHRA ONE — сайт електромобіля',
     'lang.button': 'UA',
     'lang.label': 'Змінити мову на англійську',
   },
@@ -49,8 +49,8 @@ const dictionary = {
     'pitch.body':
       'I design landing pages and websites for businesses where appearance builds client trust:<br />That way your brand convinces from the very first screen.',
     'cta.label': 'Discuss your project',
-    'case.one': 'Case 1',
-    'case.two': 'Case 2',
+    'case.fwd': 'FWD — creative studio website',
+    'case.aethra': 'AETHRA ONE — electric car website',
     'lang.button': 'EN',
     'lang.label': 'Switch language to Ukrainian',
   },
