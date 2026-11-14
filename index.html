@@ -86,35 +86,82 @@
             </a>
           </div>
 
-          <a class="case" href="#works">
-            <img
-              class="case__image"
-              src="/src/assets/cases/fwd.webp"
-              alt="FWD — сайт креативної студії"
-              data-i18n-alt="case.fwd"
-              width="1200"
-              height="900"
-              loading="eager"
-            />
-            <span class="round round--light" aria-hidden="true">
-              <img src="/src/assets/arrow-dark.svg" alt="" width="24" height="24" />
-            </span>
-          </a>
+          <!--
+            Карусель кейсів: показує по два (на телефоні по одному), гортається
+            автоматично, свайпом/перетягуванням і крапками. Останні два .case
+            з aria-hidden — клони для безкінечної прокрутки (див. src/cases.js).
+          -->
+          <div class="cases" data-cases role="region" aria-roledescription="carousel" aria-label="Кейси" data-i18n-aria-label="cases.label">
+            <div class="cases__track" data-cases-track>
+              <a class="case" href="#works">
+                <img
+                  class="case__image"
+                  src="/src/assets/cases/fwd.webp"
+                  alt="FWD — сайт креативної студії"
+                  data-i18n-alt="case.fwd"
+                  width="1200"
+                  height="900"
+                  loading="eager"
+                  draggable="false"
+                />
+                <span class="round round--light" aria-hidden="true">
+                  <img src="/src/assets/arrow-dark.svg" alt="" width="24" height="24" />
+                </span>
+              </a>
 
-          <a class="case" href="#works">
-            <img
-              class="case__image"
-              src="/src/assets/cases/aethra-one.webp"
-              alt="AETHRA ONE — сайт електромобіля"
-              data-i18n-alt="case.aethra"
-              width="1200"
-              height="900"
-              loading="eager"
-            />
-            <span class="round round--light" aria-hidden="true">
-              <img src="/src/assets/arrow-dark.svg" alt="" width="24" height="24" />
-            </span>
-          </a>
+              <a class="case" href="#works">
+                <img
+                  class="case__image"
+                  src="/src/assets/cases/aethra-one.webp"
+                  alt="AETHRA ONE — сайт електромобіля"
+                  data-i18n-alt="case.aethra"
+                  width="1200"
+                  height="900"
+                  loading="eager"
+                  draggable="false"
+                />
+                <span class="round round--light" aria-hidden="true">
+                  <img src="/src/assets/arrow-dark.svg" alt="" width="24" height="24" />
+                </span>
+              </a>
+
+              <a class="case" href="#works">
+                <img
+                  class="case__image"
+                  src="/src/assets/cases/nordic-frame.webp"
+                  alt="Nordic Frame — сайт архітектурного бренду"
+                  data-i18n-alt="case.nordic"
+                  width="1200"
+                  height="900"
+                  loading="eager"
+                  draggable="false"
+                />
+                <span class="round round--light" aria-hidden="true">
+                  <img src="/src/assets/arrow-dark.svg" alt="" width="24" height="24" />
+                </span>
+              </a>
+
+              <a class="case" href="#works" aria-hidden="true" tabindex="-1">
+                <img class="case__image" src="/src/assets/cases/fwd.webp" alt="" width="1200" height="900" draggable="false" />
+                <span class="round round--light" aria-hidden="true">
+                  <img src="/src/assets/arrow-dark.svg" alt="" width="24" height="24" />
+                </span>
+              </a>
+
+              <a class="case" href="#works" aria-hidden="true" tabindex="-1">
+                <img class="case__image" src="/src/assets/cases/aethra-one.webp" alt="" width="1200" height="900" draggable="false" />
+                <span class="round round--light" aria-hidden="true">
+                  <img src="/src/assets/arrow-dark.svg" alt="" width="24" height="24" />
+                </span>
+              </a>
+            </div>
+
+            <div class="cases__dots">
+              <button type="button" class="cases__dot" data-cases-dot aria-label="Кейс 1" data-i18n-aria-label="cases.dot1"></button>
+              <button type="button" class="cases__dot" data-cases-dot aria-label="Кейс 2" data-i18n-aria-label="cases.dot2"></button>
+              <button type="button" class="cases__dot" data-cases-dot aria-label="Кейс 3" data-i18n-aria-label="cases.dot3"></button>
+            </div>
+          </div>
         </div>
 
         <p class="hero__word" aria-hidden="true">design.</p>

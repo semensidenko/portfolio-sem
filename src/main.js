@@ -5,7 +5,9 @@ import './style.css';
 import { initI18n } from './i18n.js';
 import { initTyping } from './typing.js';
 import { initMenu } from './menu.js';
+import { initCases } from './cases.js';
 
 initI18n();
 initMenu();
+initCases();
 initTyping();
