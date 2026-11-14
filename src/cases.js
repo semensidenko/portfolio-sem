@@ -84,6 +84,26 @@ export function initCases() {
   let startX = null;
   let moved = false;
 
+  // Без цього браузер починає рідне перетягування посилання, і жест мишкою скасовується
+  track.querySelectorAll('a').forEach((link) => link.setAttribute('draggable', 'false'));
+
+  // ---- Тачпад / горизонтальне колесо ----
+  let wheelLocked = false;
+  root.addEventListener(
+    'wheel',
+    (event) => {
+      if (Math.abs(event.deltaX) < Math.abs(event.deltaY) || Math.abs(event.deltaX) < 20) return;
+      event.preventDefault();
+      if (wheelLocked) return;
+      wheelLocked = true;
+      setTimeout(() => (wheelLocked = false), 700);
+      if (event.deltaX > 0) next();
+      else prev();
+      restart();
+    },
+    { passive: false },
+  );
+
   track.addEventListener('pointerdown', (event) => {
     if (event.pointerType === 'mouse' && event.button !== 0) return;
     startX = event.clientX;
