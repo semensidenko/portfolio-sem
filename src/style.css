@@ -416,6 +416,22 @@ a {
 }
 
 @media (hover: hover) {
+  /* Кнопка зі стрілкою з'являється лише при наведенні (або фокусі з клавіатури).
+     На сенсорних екранах наведення немає, тому там вона видима завжди. */
+  .case .round {
+    opacity: 0;
+    transform: scale(0.6);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .case:hover .round,
+  .case:focus-visible .round {
+    opacity: 1;
+    transform: none;
+  }
+
   .case:hover .case__tag {
     opacity: 1;
     transform: none;
