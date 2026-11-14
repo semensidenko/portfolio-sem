@@ -271,6 +271,9 @@ a {
   position: relative;
   display: grid;
   place-items: center;
+  align-self: start;
+  /* Формат 4:3, як у зображень кейсів, щоб вони вписувалися повністю */
+  height: calc(var(--u) * 271.5);
   background: var(--color-placeholder);
 }
 
@@ -519,7 +522,8 @@ a {
   }
 
   .case {
-    aspect-ratio: 362 / 299;
+    height: auto;
+    aspect-ratio: 4 / 3;
   }
 
   .hero__word {
